@@ -1,0 +1,13 @@
+{
+  "name": "paypal-element-viewer",
+  "version": "1.0.0",
+  "description": "PayPal Element Response Viewer - Test and view PayPal element responses",
+  "main": "app.js",
+  "keywords": [
+    "paypal",
+    "payment",
+    "testing"
+  ],
+  "author": "",
+  "license": "MIT"
+}

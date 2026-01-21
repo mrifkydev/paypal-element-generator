@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Element Response Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PayPal Element Response Viewer</h1>
+            <p class="subtitle">Test and view PayPal element responses for Order and Recurring payments</p>
+        </header>
+
+        <div class="content">
+            <div class="form-section">
+                <h2>Configuration</h2>
+                <form id="configForm">
+                    <div class="form-group">
+                        <label for="clientId">PayPal Client ID</label>
+                        <input 
+                            type="text" 
+                            id="clientId" 
+                            name="clientId" 
+                            placeholder="Enter your PayPal Client ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentMode">Payment Mode</label>
+                        <select id="paymentMode" name="paymentMode" required>
+                            <option value="order">Order</option>
+                            <option value="recurring">Recurring</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="orderIdGroup">
+                        <label for="orderId">Order ID</label>
+                        <input 
+                            type="text" 
+                            id="orderId" 
+                            name="orderId" 
+                            placeholder="Enter existing Order ID"
+                        >
+                    </div>
+
+                    <div class="form-group" id="subscriptionIdGroup" style="display: none;">
+                        <label for="subscriptionId">Subscription ID</label>
+                        <input 
+                            type="text" 
+                            id="subscriptionId" 
+                            name="subscriptionId" 
+                            placeholder="Enter existing Subscription ID"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Initialize PayPal Button</button>
+                </form>
+            </div>
+
+            <div class="paypal-section">
+                <h2>PayPal Button</h2>
+                <div id="paypalButtonContainer"></div>
+            </div>
+
+            <div class="response-section">
+                <div class="response-header">
+                    <h2>Response</h2>
+                    <button id="clearResponse" class="btn btn-secondary">Clear</button>
+                </div>
+                <div id="responseDisplay" class="response-display">
+                    <p class="empty-state">No response yet. Complete a PayPal transaction to see the response.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
