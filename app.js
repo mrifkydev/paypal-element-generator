@@ -192,8 +192,9 @@ function loadPayPalSDK(clientId, mode) {
         // Create new script element
         const script = document.createElement('script');
         const intent = mode === 'recurring' ? 'subscription' : 'capture';
+        const vault = mode === 'recurring' ? '&vault=true' : '';
         
-        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=${intent}&disable-funding=card,credit,venmo,paylater,bancontact,blik,eps,giropay,ideal,mercadopago,mybank,p24,sepa,sofort`;
+        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=${intent}${vault}&disable-funding=card,credit,venmo,paylater,bancontact,blik,eps,giropay,ideal,mercadopago,mybank,p24,sepa,sofort`;
         script.async = true;
 
         script.onload = () => {
