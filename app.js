@@ -94,19 +94,6 @@ async function handleApprove(data, actions) {
             facilitatorAccessToken: data.facilitatorAccessToken || null,
         };
 
-        // For order mode, try to capture
-        if (currentConfig.mode === 'order' && data.orderID && actions.order) {
-            try {
-                const captureResult = await actions.order.capture();
-                responseData.captureDetails = captureResult;
-            } catch (captureError) {
-                responseData.captureError = {
-                    message: captureError.message,
-                    error: captureError,
-                };
-            }
-        }
-
         // For subscription mode, get subscription details
         if (currentConfig.mode === 'recurring' && data.subscriptionID && actions.subscription) {
             try {
